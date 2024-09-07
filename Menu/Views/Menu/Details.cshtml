@@ -1,0 +1,30 @@
+﻿@*
+    Details View Page
+*@
+@using System.Globalization;
+@model Menu.Models.Dish
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="container-fluid">
+    <div class="d-flex justify-content-center">
+        <h3>@Model.Name</h3>
+    </div>
+    <div class="d-flex justify-content-center">
+        <img src="@Model.ImageURL" style="width:40%"/>
+    </div>
+    <div class="d-flex justify-content-center">
+        @Model.Price.ToString("C", new CultureInfo("en-US")) Dollars
+    </div>
+    <div class="d-flex justify-content-center">
+        <ol>Ingredients:
+            @foreach (var item in Model.DishIngredients)
+            {
+                <li>
+                    @item.Ingredient.Name
+                </li>
+            }
+        </ol>
+    </div>
+    <a class="btn btn-primary" asp-action="Index">Go back to Index</a>
+</div>
