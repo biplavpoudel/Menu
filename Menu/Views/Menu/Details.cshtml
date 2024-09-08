@@ -16,8 +16,10 @@
     <div class="d-flex justify-content-center">
         @Model.Price.ToString("C", new CultureInfo("en-US")) Dollars
     </div>
+    <br />
     <div class="d-flex justify-content-center">
-        <ol>Ingredients:
+        <ol>
+            <p style="font-weight:600;">Ingredients:</p>
             @foreach (var item in Model.DishIngredients)
             {
                 <li>
